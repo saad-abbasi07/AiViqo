@@ -372,6 +372,129 @@
   .icon-button { width: 2.4rem; height: 2.4rem; }
 }
 
+/* Stats Section - Super Compact */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+  padding: 0.8rem 1%;
+  background: transparent;
+  margin: 0.5rem 0;
+  max-width: 100%;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 0.5rem 0.2rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  min-width: 0;
+}
+
+.stat-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-label {
+  font-size: 0.6rem;
+  color: #4a5568;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-top: 0.1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .stats-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.3rem;
+    padding: 0.6rem 1%;
+  }
+  
+  .stat-number {
+    font-size: 1rem;
+  }
+  
+  .stat-label {
+    font-size: 0.55rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #about .about-stats .stat p {
+    font-size: 1.6vw;
+  }
+  #about .about-stats .stat h3 {
+    font-size: 4vw;
+  }
+}
+
+/* 1000px to 768px adjustments for stats */
+@media (min-width: 768px) and (max-width: 1000px) {
+  #about .about-stats {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
+    gap: 2vw !important;
+    padding: 0 2vw !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+  #about .about-stats .stat {
+    flex: 1 !important;
+    min-width: 0 !important;
+    padding: 2vw 1.5vw !important;
+    border-radius: 1.2vw !important;
+    margin: 0 !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  #about .about-stats .stat h3 {
+    font-size: 2.4vw !important;
+    margin: 0 0 0.6vw 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    line-height: 1.2 !important;
+  }
+  #about .about-stats .stat p {
+    font-size: 1.6vw !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.3rem;
+    padding: 0.4rem 1%;
+  }
+  
+  .stat-item {
+    padding: 0.4rem 0.1rem;
+  }
+  
+  .stat-number {
+    font-size: 0.9rem;
+  }
+  
+  .stat-label {
+    font-size: 0.5rem;
+  }
+}
+
 /* Tighten further for small phones */
 @media (max-width: 640px) {
   #hero-3 a { height: 160%; }
@@ -1101,6 +1224,7 @@ justify-content: center;
     width: 100%;
     height: auto;
     min-height: 20vw;
+    flex-direction: row;
     display: flex;
     justify-content: space-between;
     padding: 2vw;
@@ -3256,6 +3380,13 @@ justify-content: center;
   }
 }
 .benefit-card p { color: #333; font-weight: 400; font-size: 1.05vw; }
+
+/* Set fixed font size for benefit card paragraphs between 700px and 1115px */
+@media (min-width: 700px) and (max-width: 1115px) {
+  .benefit-card p {
+    font-size: 24px !important;
+  }
+}
 .benefit-card .mini-points { margin-top: .6vw; display: grid; gap: .3vw; padding-left: 0; list-style: none; }
 .benefit-card .mini-points li { color: #64748b; font-weight: 500; font-size: 1vw; position: relative; padding-left: 1.1vw; }
 .benefit-card .mini-points li::before { content: ''; position: absolute; left: 0; top: .5em; width: .4vw; height: .4vw; background: #94a3b8; border-radius: 50%; }
@@ -3289,7 +3420,7 @@ justify-content: center;
 #benefits.active .benefit-card:nth-child(3) { transition-delay: .22s; }
 #benefits.active .benefit-card:nth-child(4) { transition-delay: .30s; }
 
-@media (max-width: 992px) {
+@media (max-width: 992px) and (min-width: 1001px) {
   .benefits-grid { grid-template-columns: 1fr 1fr; gap: 3.6vw; padding: 0 4vw; }
   .benefit-card { padding: 3.2vw; border-radius: 4vw; }
   .benefit-card .icon { width: 12vw; height: 12vw; font-size: 5vw; }
@@ -3302,6 +3433,18 @@ justify-content: center;
 }
 @media (max-width: 640px) {
   .benefits-grid { grid-template-columns: 1fr; gap: 4vw; }
+}
+
+/* Benefits grid layout for 700px to 1000px */
+@media (min-width: 700px) and (max-width: 1000px) {
+  .benefits-grid {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.4vw !important;
+    padding: 0 !important; /* Reset any padding that might be set elsewhere */
+  }
 }
 
 #about { 

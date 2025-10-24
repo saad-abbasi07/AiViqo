@@ -665,6 +665,12 @@ body {
     padding-right: 1.5vw;
 }
 
+@media (max-width: 1320px) {
+    #hero-3 h1 {
+        color: white !important;
+    }
+}
+
 #hr-main:hover{
     background-color: #ffffff;
     border: #000 0.1vw solid;
@@ -1320,22 +1326,30 @@ justify-content: center;
 .review-item {
     background: #fff;
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 32px;
     width: 100%;
+    max-width: 400px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     flex: 0 0 100%;
     box-sizing: border-box;
     display: none;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .review-item.active {
     display: flex;
     animation: fadeIn 0.5s ease;
 }
+
+@media (max-width: 400px) {
+    .review-item {
+        padding: 30px;
+    }
+}
+
 
 @keyframes fadeIn {
     from { opacity: 0.5; }
@@ -3155,11 +3169,6 @@ justify-content: center;
     }
 }
 
-@media(max-width:768px){
-  #hero-3 button h1{
-    color: white;
-  }
-}
 
 .benefits-grid {
   max-width: 1200px;
@@ -3295,14 +3304,19 @@ justify-content: center;
   .benefits-grid { grid-template-columns: 1fr; gap: 4vw; }
 }
 
-#about { width: 100%; background: #ffffff; color: #000; padding: 2.5vw 2.5vw 4vw; }
+#about { 
+  width: 100%; 
+  background: #ffffff; 
+  color: #000; 
+  padding: 6vw 4vw 10vw;
+  overflow: hidden;
+}
 #about .about-wrap { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 2vw; align-items: center; border: 1px solid #e5e7eb; border-radius: 1.2vw; background: linear-gradient(180deg, #fafafa, #ffffff); padding: 2.2vw; box-shadow: 0 10px 24px rgba(0,0,0,.04); position: relative; }
 #about .about-wrap::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; background: linear-gradient(90deg, rgba(99,102,241,.35), rgba(59,130,246,.35)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
 #about h2 { font-size: 2.2vw; font-weight: 700; margin-bottom: .8vw; }
 #about p { color: #333; font-weight: 400; }
 #about .about-display { font-size: 2.6vw; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; margin: .4vw 0 1vw; }
 #about .about-points { margin-top: 1vw; padding-left: 1.2vw; }
-#about .about-points li { margin: .4vw 0; }
 #about .about-cta { display: flex; flex-direction: column; gap: 1vw; align-items: stretch; }
 #about .about-cta { position: relative; }
 #about .about-cta::before { content: ""; position: absolute; inset: -2vw -1vw auto auto; width: 14vw; height: 14vw; background: radial-gradient(40% 40% at 50% 50%, rgba(59,130,246,.35), rgba(99,102,241,.15) 60%, transparent 70%); filter: blur(8px); pointer-events: none; z-index: 0; }
@@ -3371,7 +3385,39 @@ justify-content: center;
 #about-hero .about-hero-text p { color: #4b5563; margin-top: .4vw; font-weight: 400; }
 #about-hero .about-hero-actions { display: flex; gap: .8vw; justify-content: flex-end; }
 
-.about-stats { max-width: 1200px; margin: 1.6vw auto 0; padding: 0 2.5vw; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2vw; }
+#about .about-stats { 
+  max-width: 1200px; 
+  margin: 6vw auto 0; 
+  padding: 0 4vw; 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 3vw; 
+  position: relative;
+  z-index: 2;
+}
+
+.about-stats .stat {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 2vw;
+  padding: 4vw 2vw;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.about-stats .stat h3 {
+  font-size: 3.5vw;
+  margin: 0 0 1vw;
+  color: #111827;
+  font-weight: 800;
+}
+
+.about-stats .stat p {
+  font-size: 2vw;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 500;
+}
 .about-stats .stat { border: 1px solid #e5e7eb; border-radius: 1vw; background: #fff; padding: 1.4vw; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
 .about-stats .stat h3 { font-size: 2vw; font-weight: 800; }
 .about-stats .stat p { color: #6b7280; font-weight: 500; }
